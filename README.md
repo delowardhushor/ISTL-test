@@ -11,6 +11,6 @@ Thanks
 
 MD. Delowar Hossain
 
-delowardhuhsor@gmail.com
+delowardhushor@gmail.com
 
 +8801940084384

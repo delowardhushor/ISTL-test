@@ -1,14 +1,13 @@
 const InputJSON = require('./input.json')
 const {cashInCommissionFee, commissionTypes, userTypes, cashOutGovtFee, cashOutRegularFee} = require('./Contants')
 const moment = require('moment')
-const { Weekdays, dateBetweenTwoDate } = require('./uti')
+const { dateBetweenTwoDate } = require('./uti')
 
-function CalWeeklyLimit(date, user_id){
+function CalWeeklyLimit(date : any , user_id : string){
 
     const weekPreViousDates = dateBetweenTwoDate(moment(date).startOf('isoWeek'), moment(date))
 
-
-    let thisWeekTotalTrans = 0
+    let thisWeekTotalTrans : number = 0;
 
     for (let index = 0; index < InputJSON.length; index++) {
         
@@ -22,7 +21,7 @@ function CalWeeklyLimit(date, user_id){
 
 }
 
-function CalCashIn(data){
+function CalCashIn(data : any){
 
     const commission = data.operation.amount * cashInCommissionFee.percents/100
 
@@ -30,7 +29,7 @@ function CalCashIn(data){
 
 }
 
-function CalRegCashOut(data){
+function CalRegCashOut(data : any){
     
     const thisWeekTrans = CalWeeklyLimit(data.date, data.user_id)
 
@@ -56,17 +55,17 @@ function CalRegCashOut(data){
 
 }
 
-function CalGovCashOut(data){
+function CalGovCashOut(data : any){
 
-    const commission = data.operation.amount * cashOutGovtFee.percents/100
+    const commission : number = data.operation.amount * cashOutGovtFee.percents/100
 
     return commission < cashOutGovtFee.min.amount ? cashOutGovtFee.min.amount : commission
 
 }
 
-function CalculateTrans(data){
+function CalculateTrans(data : any){
 
-    let result = []
+    let result : any = []
 
     for (let index = 0; index < data.length; index++) {
 

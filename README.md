@@ -6,7 +6,11 @@ result array will be in console
 
 input are store in input.json you can modify and test terms
 
-thanks
+
+Thanks
+
 MD. Delowar Hossain
-delowardhuhsor@gmail.com
+
+delowardhushor@gmail.com
+
 +8801940084384
